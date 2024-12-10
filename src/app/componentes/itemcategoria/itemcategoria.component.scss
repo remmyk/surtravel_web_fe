@@ -1,0 +1,93 @@
+$lp__cont__item__textSize: 12px;
+$color__dk: #222;
+$main__font: 'Merriweather', serif;
+
+* {
+  font-family: sans-serif;
+  color: rgba(0,0,0,0.75);
+}
+.main {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  padding: 0px 30px;
+  background: $color__dk;
+}
+
+.lp {
+  background: #fff;
+  max-width: 100%;
+  min-height: 500px;
+  margin: auto;
+  padding: 32px;
+}
+.lp__banner {
+  background: #ccc;
+  background: url(../../../assets/img/sitio.png);
+  background-size: cover;
+  background-position: center;
+  height: 650px;
+
+}
+.lp__title {
+  color: $color__dk;
+  font-family: $main__font;
+  font-size: 64px;
+  text-align: center;
+  margin: 32px 0;
+}
+.lp__cont {
+  display: flex;
+}
+.lp__cont__item {
+  width: 176px;
+}
+.lp__cont__item:last-of-type {
+  width: 100%;
+}
+.lp__cont__item__title {
+  color: $color__dk;
+  font-size: $lp__cont__item__textSize;
+  font-weight: 600;
+  margin: 0;
+
+}
+.lp__cont__item__text {
+  color: $color__dk;
+  font-size: $lp__cont__item__textSize;
+  margin: 4px 0;
+}
+.lp__cont__item-rt {
+ color: #222;
+}
+.lp__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lp__nav__link {
+  color: $color__dk;
+  font-size: $lp__cont__item__textSize;
+  font-weight: 600;
+  text-align: right;
+  text-transform: uppercase;
+  margin: 0 0 4px;
+}
+.lp__nav__link a {
+  text-decoration: none;
+}
+.lp__nav__link-active {
+  position: relative;
+}
+.lp__nav__link-active::before {
+  content: '';
+  background: #545454;
+  border-radius: 50%;
+  height: 4px;
+  width: 4px;
+  position: absolute;
+  top: 4px;
+  right: -8px;
+}

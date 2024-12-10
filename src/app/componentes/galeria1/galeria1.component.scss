@@ -1,0 +1,136 @@
+$slider-container-width:100%;
+$slider-primary: #00ABFA;
+$slider-thumb-height: 100%;
+$slider-bg: #000;
+$slider-color: #fff;
+$slider-dot-size: 1rem;
+$slider-dot-height: 2rem;
+$slider-arrow-size: 3rem;
+$dot-bg: #fff;
+$n: 4;
+
+
+.slider {
+  height: 200px; 
+  width: 100%;
+  
+  .contenedor {
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+    position: relative;
+    text-align: left;
+    max-width: $slider-container-width;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    vertical-align: middle;
+    border: 0;
+    position: relative;
+  }
+  
+  .head {
+    font-size: 16px;
+    position: absolute;
+    z-index: 12;                      
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    margin: .5em;
+    padding: .5em;
+    opacity: 1;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+    background: rgba($slider-bg, .5); 
+    
+    
+    h2 {
+      color: $slider-color;
+      text-transform: uppercase;
+      padding: 0;
+      margin: 0 0 .25em;
+      line-height: 1.2;
+      font-size: 1.5em;
+    }
+    
+    p {
+      color: rgba($slider-color, .8);
+      padding: 0;
+      margin: 0 0 .125em;
+      line-height: 1.2;
+      font-size: 1em;
+    }
+   
+    a {
+      color: $slider-primary;
+      text-decoration: none;
+      line-height: 1.2;
+      font-size: .75em;
+      
+      &:hover {
+        color: darken($slider-primary, 20%);
+        text-decoration: underline;
+      }
+    }    
+  }
+  
+  &-content {
+    overflow: hidden;  
+    margin: 0 auto;
+    position: relative;
+
+    width: 100%;
+    height: calc(100% - #{$slider-thumb-height});
+    
+  }  
+  
+
+  &-thumb {
+    display: block;
+    z-index: 1000;
+    cursor: pointer;
+    position: absolute;
+    
+    width: calc(100% / #{$n});
+    height: $slider-thumb-height;
+    bottom: 0;
+    // margin: calc(100% - #{$slider-thumb-height}) 0 0 0;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $slider-bg;
+      opacity: .5;
+      transition: all .2s ease-in-out;
+    }
+    
+    &:hover:after {
+      opacity: 0;
+    }
+    
+    .head {
+      background: transparent;
+      font-size: 8px;
+      margin: 0;
+    }
+  } 
+  
+ @for $i from 0 through $n - 1 {
+    #thumb-#{$i+1} { left: $i * calc(100% / $n); }
+    
+    #input-#{$i+1}:checked ~ &-content .slider-inner {
+      margin-left: $i * -100%;
+    }
+  }
+
+   
+}
